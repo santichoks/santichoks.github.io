@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Rabbit-Code</title>
     <style>
         @keyframes example 
@@ -44,11 +45,11 @@
         }
         .hamberg
         {
-            float: left;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 10px;
             display: none;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-size: 30px;
         }
         .menu
         {
@@ -60,6 +61,7 @@
             top: 0px;
             left: 0px;
             overflow: auto;
+            z-index: 1;
         }
         .menu>ul
         {
@@ -95,15 +97,36 @@
         {
             color: White;
         }
-        .menu>ul>li>a.Home
+        .mini_menu
         {
-            background-color: #4E944F;
+            display: none;
+            text-decoration: none;
+            height: 200px;
+            position: sticky;
+            top: 57px;
+            z-index: 1;
+        }
+        .mini_menu>a
+        {
+            text-decoration: none;
+            padding: 6px 25px;
+            display: block;
             color: white;
+            font-weight: bolder;
+            font-size: x-large;
+        }
+        .mini_menu>a:hover
+        {
+            background-color: #19282F;
         }
         .main_content
         {
             height: auto;
             display: flex;
+            position: relative;
+            margin-left: 20px;
+            margin-right: 20px;
+            z-index: 0;
         }
         @media screen and (max-width: 600px)
         {
@@ -119,9 +142,14 @@
             {
                 display: none;
             }
+            .mini_menu
+            {
+                display: none;
+                background-color: #83BD75;
+            }
             .hamberg
             {
-                display: inline;
+                display: block;
             }
         }
         @media screen and (max-width: 450px)
@@ -129,6 +157,13 @@
             .main_content div
             {
                 height: 180px;
+            }
+        }
+        @media screen and (max-width: 300px)
+        {
+            .main_content div
+            {
+                height: 100px;
             }
         }
         .main_content div
@@ -158,8 +193,8 @@
         { 
             transform: scale(1.2);
             transition: transform 0.5s ease;
-            margin-left: 50px;
-            margin-right: 50px;
+            margin: 50px;
+            margin-bottom: 0px;
             border: 0px;
         }
         .map
@@ -167,49 +202,64 @@
         }
         .footer
         {
+
         }
     </style>
+    <script>
+        
+        function menuFunction()
+        {
+            var x = document.getElementById("id_mini_menu");
+            if (x.style.display === "block") 
+            {
+                x.style.display = "none";
+            } 
+            else 
+            {
+                x.style.display = "block";
+            }
+        }
+    </script>
 </head>
 <body>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
     <div class="header"><h1>RABBITCODE Real Estate</h1></div>
     <div class="menu">
-        <svg class="hamberg" viewBox="0 0 100 80" width="40" height="40">
-            <rect width="100" height="20"></rect>
-            <rect y="30" width="100" height="20"></rect>
-            <rect y="60" width="100" height="20"></rect>
-        </svg>
+        <a href="javascript:void(0);" class="hamberg" onclick="menuFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
         <ul class="horizontal_menu">
-            <li class="t"><a href="#" class="Home">Home</a></li>
+            <li class="t"><a href="#" class="Home" style="background-color: #4E944F; color: white;">Home</a></li>
             <li><a href="#">House</a></li>
             <li><a href="#">Condo</a></li>
             <li><a href="#">Sale</a></li>
             <li class="Login"><a href="login.html">Login</a></li>
         </ul>
     </div>
+    <div class="mini_menu" id="id_mini_menu">
+        <a href="#home" style="background-color: #4E944F; color: white;">Home</a>
+        <a href="#house">House</a>
+        <a href="#condo">Condo</a>
+        <a href="#sale">Sale</a> 
+        <a href="#login">Login</a>
+        <a href="#login">Login</a>
+    </div>
     <div class="main_content">
         <div class="content content1"></div>
         <div class="content content2"></div>
         <div class="content content3"></div>
     </div>
+    <iframe 
+        style="margin: auto; display: block;" 
+        width="auto" 
+        height="360" 
+        src="https://www.youtube.com/embed/gnWgryyShog" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
     <div class="map"></div>
     <div class="footer"></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div style="height: 500px;"></div>
 </body>
 </html>
